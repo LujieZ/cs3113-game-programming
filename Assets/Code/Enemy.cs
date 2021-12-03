@@ -21,11 +21,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //print(_navMeshAgent.isStopped);
-        _navMeshAgent.isStopped = GlobalVar.Seen;
+        print(_navMeshAgent.enabled);
+        _navMeshAgent.enabled  = !GlobalVar.Seen;
 
-        _navMeshAgent.SetDestination(player.transform.position);
-        print(_navMeshAgent.destination);
+        
+        if(_navMeshAgent.enabled ){
+            _navMeshAgent.SetDestination(player.transform.position);
+        }
         //print(_navMeshAgent.destination);
     }
 }
