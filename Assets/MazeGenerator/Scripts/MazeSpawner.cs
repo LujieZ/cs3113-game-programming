@@ -65,7 +65,7 @@ public class MazeSpawner : MonoBehaviour {
 				tmp = Instantiate(Floor,new Vector3(x,CellHeight,z), Quaternion.Euler(0,0,0)) as GameObject;
 				tmp.transform.parent = transform;
 				if(cell.WallRight){
-					tmp = Instantiate(Wall,new Vector3(x+CellWidth,CellHeight/2,z)+Wall.transform.position,Quaternion.Euler(90,90,0)) as GameObject;// right
+					tmp = Instantiate(Wall,new Vector3(x+CellWidth/2,CellHeight/2,z)+Wall.transform.position,Quaternion.Euler(90,90,0)) as GameObject;// right
 					tmp.transform.parent = transform;
 				}
 				if(cell.WallFront){
