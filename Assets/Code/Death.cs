@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
@@ -50,6 +51,13 @@ public class Death : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         transform.position = end;
+        StartCoroutine(Restart());
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene("Menu");
     }
 
     void ColorChanger()

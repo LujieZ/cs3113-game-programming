@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3757565720032723031}
   - component: {fileID: 8833959237943069809}
   - component: {fileID: 6736382659656710331}
+  - component: {fileID: 8381504606069909522}
+  - component: {fileID: 5063094319227606471}
+  - component: {fileID: 5232944031841906688}
   m_Layer: 0
   m_Name: Moving Ghost
   m_TagString: Untagged
@@ -82,3 +85,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8381504606069909522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576502752053826666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9daf41ef63fecef4aa10c13119dc74be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &5063094319227606471
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576502752053826666}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.00987313
+  m_Speed: 3.5
+  m_Acceleration: 100
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.019746263
+  m_BaseOffset: 0.009873131
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &5232944031841906688
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576502752053826666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.009692987
+  m_Height: 0.026952762
+  m_Direction: 2
+  m_Center: {x: -0.00006179809, y: -0.00069506286, z: -0.003549273}
