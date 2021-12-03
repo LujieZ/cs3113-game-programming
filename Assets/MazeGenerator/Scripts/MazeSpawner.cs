@@ -62,8 +62,8 @@ public class MazeSpawner : MonoBehaviour {
 				GameObject tmp;
 				tmp = Instantiate(Floor,new Vector3(x,0,z), Quaternion.Euler(0,0,0)) as GameObject;
 				tmp.transform.parent = transform;
-				// tmp = Instantiate(Floor,new Vector3(x,CellHeight,z), Quaternion.Euler(0,0,0)) as GameObject;
-				// tmp.transform.parent = transform;
+				tmp = Instantiate(Floor,new Vector3(x,CellHeight,z), Quaternion.Euler(0,0,0)) as GameObject;
+				tmp.transform.parent = transform;
 
 				if(!(row==Rows-1 && column==Columns-1)){
 
@@ -84,7 +84,7 @@ public class MazeSpawner : MonoBehaviour {
 						tmp.transform.parent = transform;
 					}
 					if(cell.IsGoal && GoalPrefab != null){
-						tmp = Instantiate(GoalPrefab,new Vector3(x,1,z), Quaternion.Euler(0,0,0)) as GameObject;
+						tmp = Instantiate(GoalPrefab,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
 						tmp.transform.parent = transform;
 					}
 				}
