@@ -86,6 +86,7 @@ public class MazeSpawner : MonoBehaviour {
 				}
 			}
 		}
+
 		if(Pillar != null){
 			for (int row = 0; row < Rows+1; row++) {
 				for (int column = 0; column < Columns+1; column++) {
@@ -102,6 +103,7 @@ public class MazeSpawner : MonoBehaviour {
         for (int i = 0; i < surfaces.Length; i++) 
         {
             surfaces [i].BuildNavMesh ();    
-        }    
+        }
+		
 	}
 }
