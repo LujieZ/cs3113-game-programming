@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fbc76ce3be5b8844a8a527bb6148a43a
+guid: 6ab3b0f81be65a34a8d3b5ff79046f77
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -22,12 +22,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Negro
-    second: {fileID: 2100000, guid: acdf7d7661462eb449d47156715e29cb, type: 2}
+    second: {fileID: 2100000, guid: 2e67ec9e95f0a204ca3b9da1a7b95a1b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Pacman
-    second: {fileID: 2100000, guid: 67d24f0d736dac54dadae2a34a5a33e7, type: 2}
+    second: {fileID: 2100000, guid: 655839a0dd9e0d14b89c7a1e733d53f6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
