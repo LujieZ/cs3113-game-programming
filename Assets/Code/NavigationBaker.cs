@@ -11,16 +11,12 @@ public class NavigationBaker : MonoBehaviour {
     // Use this for initialization
     void Start () 
     {
+        surfaces =  FindObjectsOfType<NavMeshSurface>();
 
-        for (int j = 0; j < objectsToRotate.Length; j++) 
+        for (int i = 0; i < surfaces.Length; i++)
         {
-            objectsToRotate [j].localRotation = Quaternion.Euler (new Vector3 (0, Random.Range (0, 360), 0));
+            surfaces [i].BuildNavMesh ();
         }
-
-        for (int i = 0; i < surfaces.Length; i++) 
-        {
-            surfaces [i].BuildNavMesh ();    
-        }    
     }
 
 }

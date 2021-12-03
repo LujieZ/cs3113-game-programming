@@ -14,15 +14,18 @@ public class Enemy : MonoBehaviour
         renderer = GetComponent<Renderer>();
         _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player =  GameObject.FindWithTag("Player");
+        //_navMeshAgent.destination = player.transform.position;
+        //_navMeshAgent.destination = new Vector3(10,10,10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(_navMeshAgent.isStopped);
+        //print(_navMeshAgent.isStopped);
         _navMeshAgent.isStopped = GlobalVar.Seen;
 
-        _navMeshAgent.destination = player.transform.position;
-        
+        _navMeshAgent.SetDestination(player.transform.position);
+        print(_navMeshAgent.destination);
+        //print(_navMeshAgent.destination);
     }
 }
