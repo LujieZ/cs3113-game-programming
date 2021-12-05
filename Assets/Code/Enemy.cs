@@ -23,7 +23,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //print(_navMeshAgent.enabled);
-        _navMeshAgent.enabled  = !GlobalVar.Seen;
+        _navMeshAgent.enabled  = !GlobalVar.Seen || GlobalVar.Dark;
+        if(GlobalVar.Seen && GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
+            _navMeshAgent.speed = 30;
+        }
+        else{
+            _navMeshAgent.speed = 6;
+        }
 
         
         if(_navMeshAgent.enabled ){
@@ -36,8 +42,16 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("death");
             SceneManager.LoadScene("Death");
         }
+    }
+
+    float RemainingDistance(Vector3[] points)
+    {
+        if (points.Length < 2) return 0;
+        float distance = 0;
+        for (int i = 0; i < points.Length - 1; i++)
+            distance += Vector3.Distance(points[i], points[i + 1]);
+        return distance;
     }
 }
