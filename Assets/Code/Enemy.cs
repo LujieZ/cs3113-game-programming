@@ -23,16 +23,16 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //print(_navMeshAgent.enabled);
-        _navMeshAgent.enabled  = !GlobalVar.Seen || GlobalVar.Dark;
-        if(GlobalVar.Seen && GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
-            _navMeshAgent.speed = 30;
+        _navMeshAgent.isStopped  = GlobalVar.Seen && !GlobalVar.Dark;
+        if(GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
+            _navMeshAgent.speed = 40;
         }
         else{
             _navMeshAgent.speed = 6;
         }
 
         
-        if(_navMeshAgent.enabled ){
+        if(!_navMeshAgent.isStopped  ){
             _navMeshAgent.SetDestination(player.transform.position);
         }
         //print(_navMeshAgent.destination);
