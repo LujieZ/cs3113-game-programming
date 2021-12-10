@@ -7,4 +7,6 @@ static class GlobalVar{
     public static bool Blackout = false;
 
     public static bool Dark = false;
+
+    public static int level = 1;
 }

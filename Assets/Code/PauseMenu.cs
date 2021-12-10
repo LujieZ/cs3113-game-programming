@@ -27,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+        GlobalVar.level = 1;
     }
 
     public void QuitGame()
