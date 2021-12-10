@@ -1041,6 +1041,7 @@ MonoBehaviour:
   AddGaps: 0
   GoalPrefab: {fileID: 576502752053826666, guid: 3fce3c4b332c581429bacf52900bdf66,
     type: 3}
+  GatePrefab: {fileID: 165492, guid: 14fb00da0e33940448e682c534f283dd, type: 3}
   surfaces: []
   objectsToRotate: []
   GhostNum: 5

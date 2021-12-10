@@ -2026,6 +2026,7 @@ MonoBehaviour:
   CellHeight: 8
   AddGaps: 0
   GoalPrefab: {fileID: 0}
+  GatePrefab: {fileID: 165492, guid: 14fb00da0e33940448e682c534f283dd, type: 3}
   surfaces: []
   objectsToRotate: []
   GhostNum: 0

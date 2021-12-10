@@ -27,6 +27,8 @@ public class MazeSpawner : MonoBehaviour {
 	public bool AddGaps = true;
 	public GameObject GoalPrefab = null;
 
+	public GameObject GatePrefab = null;
+
 	private BasicMazeGenerator mMazeGenerator = null;
 
 	public NavMeshSurface[] surfaces;
@@ -69,30 +71,32 @@ public class MazeSpawner : MonoBehaviour {
 				tmp.transform.parent = transform;
 				tmp = Instantiate(Floor,new Vector3(x,CellHeight,z), Quaternion.Euler(0,0,0)) as GameObject;
 				tmp.transform.parent = transform;
-
-				if(!(row==Rows-1 && column==Columns-1)){
-
-					if(cell.WallRight){
-						tmp = Instantiate(Wall,new Vector3(x+CellWidth/2,CellHeight/2,z)+Wall.transform.position,Quaternion.Euler(90,90,0)) as GameObject;// right
-						tmp.transform.parent = transform;
-					}
-					if(cell.WallFront){
-						tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z+CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,0,0)) as GameObject;// front
-						tmp.transform.parent = transform;
-					}
-					if(cell.WallLeft){
-						tmp = Instantiate(Wall,new Vector3(x-CellWidth/2,CellHeight/2,z)+Wall.transform.position,Quaternion.Euler(90,270,0)) as GameObject;// left
-						tmp.transform.parent = transform;
-					}
-					if(cell.WallBack){
-						tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z-CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,180,0)) as GameObject;// back
-						tmp.transform.parent = transform;
-					}
-					if(cell.IsGoal && GoalPrefab != null && GhostCount<GhostNum){
-						tmp = Instantiate(GoalPrefab,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
-						tmp.transform.parent = transform;
-						GhostCount++;
-					}
+				if(cell.WallRight){
+					tmp = Instantiate(Wall,new Vector3(x+CellWidth/2,CellHeight/2,z)+Wall.transform.position,Quaternion.Euler(90,90,0)) as GameObject;// right
+					tmp.transform.parent = transform;
+				}
+				if(cell.WallFront){
+					tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z+CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,0,0)) as GameObject;// front
+					tmp.transform.parent = transform;
+				}
+				if(cell.WallLeft){
+					tmp = Instantiate(Wall,new Vector3(x-CellWidth/2,CellHeight/2,z)+Wall.transform.position,Quaternion.Euler(90,270,0)) as GameObject;// left
+					tmp.transform.parent = transform;
+				}
+				if(cell.WallBack){
+					tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z-CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,180,0)) as GameObject;// back
+					tmp.transform.parent = transform;
+				}
+				if(cell.IsGoal && GoalPrefab != null && GhostCount<GhostNum){
+					tmp = Instantiate(GoalPrefab,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
+					tmp.transform.parent = transform;
+					GhostCount++;
+				}
+			
+				if(row==Rows-1 && column==Columns-1)
+				{
+					tmp = Instantiate(GatePrefab,new Vector3(x,0,z+CellHeight/2-0.5f), Quaternion.Euler(0,0,0)) as GameObject;
+					tmp.transform.parent = transform;
 				}
 			}
 		}
