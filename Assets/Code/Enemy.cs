@@ -9,12 +9,15 @@ public class Enemy : MonoBehaviour
     UnityEngine.AI.NavMeshAgent _navMeshAgent;
 
     GameObject player;
+
+    private float speed;
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<Renderer>();
         _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         player =  GameObject.FindWithTag("Player");
+        speed = _navMeshAgent.speed;
         //_navMeshAgent.destination = player.transform.position;
         //_navMeshAgent.destination = new Vector3(10,10,10);
     }
@@ -23,12 +26,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //print(_navMeshAgent.enabled);
-        _navMeshAgent.isStopped  = GlobalVar.Seen && !GlobalVar.Dark;
+    _navMeshAgent.isStopped  = GlobalVar.Seen && !GlobalVar.Dark;
         if(GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
             _navMeshAgent.speed = 40;
         }
         else{
-            _navMeshAgent.speed = 6;
+            _navMeshAgent.speed = speed;
         }
 
         

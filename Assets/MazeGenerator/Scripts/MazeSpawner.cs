@@ -32,7 +32,12 @@ public class MazeSpawner : MonoBehaviour {
 	public NavMeshSurface[] surfaces;
     public Transform[] objectsToRotate;
 
+	public int GhostNum;
+
+	private int GhostCount;
+
 	void Start () {
+		GhostCount = 0;
 		if (!FullRandom) {
 			Random.seed = RandomSeed;
 		}
@@ -83,9 +88,10 @@ public class MazeSpawner : MonoBehaviour {
 						tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z-CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,180,0)) as GameObject;// back
 						tmp.transform.parent = transform;
 					}
-					if(cell.IsGoal && GoalPrefab != null){
+					if(cell.IsGoal && GoalPrefab != null && GhostCount<GhostNum){
 						tmp = Instantiate(GoalPrefab,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
 						tmp.transform.parent = transform;
+						GhostCount++;
 					}
 				}
 			}
