@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class FadeBlackT : MonoBehaviour
 {
@@ -21,6 +23,9 @@ public class FadeBlackT : MonoBehaviour
     IEnumerator FadeToBlack()
     {
         yield return new WaitForSeconds(0.1f);
-        _animator.SetTrigger("Fade");
+        // If in Death Scene
+        if (SceneManager.GetActiveScene().name == "Death"){
+            _animator.SetTrigger("Fade");
+        }
     }
 }
