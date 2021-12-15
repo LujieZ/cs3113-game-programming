@@ -14,6 +14,7 @@ public class FieldOfView : MonoBehaviour {
 	public List<Transform> visibleTargets = new List<Transform>();
 
 	void Start() {
+		Cursor.visible = false;
 	}
 
 
