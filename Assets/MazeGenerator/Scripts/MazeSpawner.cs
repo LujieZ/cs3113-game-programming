@@ -29,6 +29,8 @@ public class MazeSpawner : MonoBehaviour {
 
 	public GameObject GatePrefab = null;
 
+	public GameObject TorchPrefab = null;
+
 	private BasicMazeGenerator mMazeGenerator = null;
 
 	public NavMeshSurface[] surfaces;
@@ -92,11 +94,39 @@ public class MazeSpawner : MonoBehaviour {
 					tmp.transform.parent = transform;
 					GhostCount++;
 				}
-			
+
 				if(row==Rows-1 && column==Columns-1)
 				{
 					tmp = Instantiate(GatePrefab,new Vector3(x,0,z+CellHeight/2-0.5f), Quaternion.Euler(0,0,0)) as GameObject;
 					tmp.transform.parent = transform;
+				}
+
+				int r = Random.Range(0,2);
+				if (r==0)
+				{
+					if(cell.WallRight)
+					{
+						tmp = Instantiate(TorchPrefab,new Vector3(x+3.5f,4,z), Quaternion.Euler(0,0,0)) as GameObject;
+						tmp.transform.parent = transform;
+					}
+
+					else if(cell.WallLeft)
+					{
+						tmp = Instantiate(TorchPrefab,new Vector3(x-3.5f,4,z), Quaternion.Euler(0,180,0)) as GameObject;
+						tmp.transform.parent = transform;
+					}
+
+					else if(cell.WallFront)
+					{
+						tmp = Instantiate(TorchPrefab,new Vector3(x,4,z+3.5f), Quaternion.Euler(0,-90,0)) as GameObject;
+						tmp.transform.parent = transform;
+					}
+
+					else if(cell.WallBack)
+					{
+						tmp = Instantiate(TorchPrefab,new Vector3(x,4,z-3.5f), Quaternion.Euler(0,90,0)) as GameObject;
+						tmp.transform.parent = transform;
+					}
 				}
 			}
 		}

@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  m_AmbientSkyColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -1868,6 +1868,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_SpotAngle
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600457019873451147, guid: 4dcc032577f1ad34d81bbb303c6f2962,
+        type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1600457020350647372, guid: 4dcc032577f1ad34d81bbb303c6f2962,
         type: 3}
       propertyPath: viewAngle
@@ -2027,6 +2067,8 @@ MonoBehaviour:
   AddGaps: 0
   GoalPrefab: {fileID: 0}
   GatePrefab: {fileID: 165492, guid: 14fb00da0e33940448e682c534f283dd, type: 3}
+  TorchPrefab: {fileID: 6032647708114495372, guid: 1d2be1fc6059a1c48b87f81d8d662f3a,
+    type: 3}
   surfaces: []
   objectsToRotate: []
   GhostNum: 0
