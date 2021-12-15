@@ -102,7 +102,7 @@ public class MazeSpawner : MonoBehaviour {
 				}
 
 				int r = Random.Range(0,2);
-				if (r==0)
+				if (r==1)
 				{
 					if(cell.WallRight)
 					{
