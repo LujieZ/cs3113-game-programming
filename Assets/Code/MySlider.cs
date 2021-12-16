@@ -26,6 +26,6 @@ public class MySlider : MonoBehaviour
 
     public void ValueChangeCheck()
     {
-        fpc.RotationSpeed = (int)slider.value;
+        fpc.RotationSpeed = slider.value;
     }
 }
