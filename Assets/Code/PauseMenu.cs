@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -19,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+        Cursor.visible = true;
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -28,11 +30,26 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
         GlobalVar.level = 1;
+        GameIsPaused = false;
     }
 
     public void QuitGame()
     {
         Debug.Log("Quit!");
         Application.Quit();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            if(GameIsPaused)
+            {
+                Resume();
+            }
+            else{
+                Pause();
+            }
+        }
     }
 }
