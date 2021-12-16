@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GlobalVar.Blackout = false;
             SceneManager.LoadScene("Death");
         }
     }

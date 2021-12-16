@@ -10,15 +10,17 @@ public class Intro : MonoBehaviour
     {
         StartCoroutine(WaitToMenu());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     IEnumerator WaitToMenu()
     {
         yield return new WaitForSeconds(39.5f);
         SceneManager.LoadScene("Menu");
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 }
