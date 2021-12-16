@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using StarterAssets;
 
 public class Ghost : MonoBehaviour
 {
     Renderer renderer;
     UnityEngine.AI.NavMeshAgent _navMeshAgent;
     MazeSpawner mazeSpawner;
+    public FirstPersonController fpc;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,7 @@ public class Ghost : MonoBehaviour
         mazeSpawner = GameObject.Find("MazeSpawner").GetComponent<MazeSpawner>();
         renderer = GetComponent<Renderer>();
         _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        fpc = GameObject.FindWithTag("Player").GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
@@ -33,9 +36,21 @@ public class Ghost : MonoBehaviour
     {
         if (other.CompareTag("Player") && !GlobalVar.Blackout)
         {
-            GlobalVar.Blackout = true;
-            yield return new WaitForSeconds(6);
-            GlobalVar.Blackout = false;
+            if(gameObject.tag == "Ghost1")
+            {
+                GlobalVar.Blackout = true;
+                yield return new WaitForSeconds(3);
+                GlobalVar.Blackout = false;
+            }
+
+            else if(gameObject.tag == "Ghost2")
+            {
+                fpc.RotationSpeed = 0;
+                fpc.MoveSpeed = 0;
+                yield return new WaitForSeconds(3);
+                fpc.RotationSpeed = GlobalVar.sensitivity;
+                fpc.MoveSpeed = 4;
+            }
         }
     }
 }

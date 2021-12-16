@@ -25,8 +25,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //print(_navMeshAgent.enabled);
-    _navMeshAgent.isStopped  = GlobalVar.Seen && !GlobalVar.Dark;
+    _navMeshAgent.isStopped  = GlobalVar.Seen && GlobalVar.Clear;
         if(GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
             _navMeshAgent.speed = 40;
         }
@@ -34,18 +33,16 @@ public class Enemy : MonoBehaviour
             _navMeshAgent.speed = speed;
         }
 
-        
         if(!_navMeshAgent.isStopped  ){
             _navMeshAgent.SetDestination(player.transform.position);
         }
-        //print(_navMeshAgent.destination);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GlobalVar.Blackout = false;
+            GlobalVar.Blink = false;
             SceneManager.LoadScene("Death");
         }
     }

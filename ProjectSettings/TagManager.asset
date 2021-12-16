@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - Coin
   - Floor
+  - Ghost2
+  - Ghost1
   layers:
   - Default
   - TransparentFX

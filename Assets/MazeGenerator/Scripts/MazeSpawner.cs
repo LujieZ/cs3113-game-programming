@@ -25,8 +25,9 @@ public class MazeSpawner : MonoBehaviour {
 	public float CellWidth = 5;
 	public float CellHeight = 5;
 	public bool AddGaps = true;
-	public GameObject GoalPrefab = null;
+	public GameObject GhostPrefab1 = null;
 
+	public GameObject GhostPrefab2 = null;
 	public GameObject GatePrefab = null;
 
 	public GameObject TorchPrefab = null;
@@ -89,8 +90,14 @@ public class MazeSpawner : MonoBehaviour {
 					tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z-CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,180,0)) as GameObject;// back
 					tmp.transform.parent = transform;
 				}
-				if(cell.IsGoal && GoalPrefab != null && GhostCount<GhostNum){
-					tmp = Instantiate(GoalPrefab,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
+				if(cell.IsGoal && GhostPrefab1 != null && GhostCount<GhostNum){
+					if (GhostCount<GhostNum/2){
+						tmp = Instantiate(GhostPrefab1,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
+					}
+					else
+					{
+						tmp = Instantiate(GhostPrefab2,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
+					}
 					tmp.transform.parent = transform;
 					GhostCount++;
 				}
