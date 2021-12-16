@@ -3150,6 +3150,8 @@ MonoBehaviour:
   GhostPrefab2: {fileID: 7198869534992730242, guid: 738fa279ec794134ca0d712014a9dbf6,
     type: 3}
   GatePrefab: {fileID: 165492, guid: 14fb00da0e33940448e682c534f283dd, type: 3}
+  CherriesPrefab: {fileID: 5762037405810079706, guid: 1cce1a10fd287bd49a9af37dbdcba8cb,
+    type: 3}
   TorchPrefab: {fileID: 6032647708114495372, guid: 1d2be1fc6059a1c48b87f81d8d662f3a,
     type: 3}
   surfaces: []

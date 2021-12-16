@@ -30,7 +30,11 @@ public class MazeSpawner : MonoBehaviour {
 	public GameObject GhostPrefab2 = null;
 	public GameObject GatePrefab = null;
 
+	public GameObject CherriesPrefab = null;
+
 	public GameObject TorchPrefab = null;
+
+	
 
 	private BasicMazeGenerator mMazeGenerator = null;
 
@@ -90,16 +94,21 @@ public class MazeSpawner : MonoBehaviour {
 					tmp = Instantiate(Wall,new Vector3(x,CellHeight/2,z-CellHeight/2)+Wall.transform.position,Quaternion.Euler(90,180,0)) as GameObject;// back
 					tmp.transform.parent = transform;
 				}
-				if(cell.IsGoal && GhostPrefab1 != null && GhostCount<GhostNum){
-					if (GhostCount<GhostNum/2){
+
+				if(column%2==0){
+					if(cell.IsGoal && GhostPrefab1 != null && GhostCount<GhostNum){
 						tmp = Instantiate(GhostPrefab1,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
+						tmp.transform.parent = transform;
+						GhostCount++;
 					}
-					else
-					{
+				}
+				else
+				{
+					if(cell.IsGoal && GhostPrefab2 != null && GhostCount<GhostNum){
 						tmp = Instantiate(GhostPrefab2,new Vector3(x,1,z), Quaternion.Euler(0,0,90)) as GameObject;
+						tmp.transform.parent = transform;
+						GhostCount++;
 					}
-					tmp.transform.parent = transform;
-					GhostCount++;
 				}
 
 				if(row==Rows-1 && column==Columns-1)
@@ -137,8 +146,17 @@ public class MazeSpawner : MonoBehaviour {
 				}
 			}
 		}
-
-
+		if(CherriesPrefab!=null){
+			for (int i = 0; i < Rows; i++) {
+				GameObject tmp;
+				int x = 8*Random.Range(0,Rows-1);
+				int z = 8*Random.Range(0,Columns-1);
+				{
+					tmp = Instantiate(CherriesPrefab,new Vector3(x, 1 ,z), Quaternion.Euler(0,0,0)) as GameObject;
+					tmp.transform.parent = transform;
+				}
+			}
+		}
 
 		if(Pillar != null){
 			for (int row = 0; row < Rows+1; row++) {

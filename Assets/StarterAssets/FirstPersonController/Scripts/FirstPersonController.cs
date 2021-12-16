@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -242,6 +243,17 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		IEnumerator OnTriggerEnter(Collider other)
+		{
+			if (other.CompareTag("Cherry"))
+			{
+				Destroy(other.gameObject);
+				MoveSpeed = 8;
+				yield return new WaitForSeconds(6);
+				MoveSpeed = 4;
+			}
 		}
 	}
 }
