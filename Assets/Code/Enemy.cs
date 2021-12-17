@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         _navMeshAgent.isStopped  = GlobalVar.Seen && GlobalVar.Clear || GlobalVar.Scanned;
-        if(GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
+        if(GlobalVar.Dark && GlobalVar.Seen || RemainingDistance(_navMeshAgent.path.corners)>30){
             _navMeshAgent.speed = 40;
         }
         else{

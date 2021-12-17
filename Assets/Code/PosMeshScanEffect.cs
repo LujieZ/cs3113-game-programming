@@ -54,6 +54,7 @@ public class PosMeshScanEffect : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!stopped && GlobalVar.Scanned&&Physics.Raycast(ray,out hit))
         {
+            ScanPoint = transform.position;
             scanTimer = 0;
             StartCoroutine(Scan());
         }

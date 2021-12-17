@@ -54,7 +54,7 @@ public class Blackout : MonoBehaviour
 
     IEnumerator Blink(){
         GlobalVar.Blink = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         GlobalVar.Blink = false;
     }
 
