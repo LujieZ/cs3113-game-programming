@@ -14,7 +14,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level " + GlobalVar.level.ToString());
+        // SceneManager.LoadScene("Level " + GlobalVar.level.ToString());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + GlobalVar.level);
     }
 
     public void QuitGame()
