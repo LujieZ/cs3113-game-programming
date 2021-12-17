@@ -18,7 +18,7 @@ public class Intro : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P) || Input.GetTouch(0).phase == TouchPhase.Began)
         {
             SceneManager.LoadScene("Menu");
         }
