@@ -806,7 +806,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fbc76ce3be5b8844a8a527bb6148a43a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32
+      value: 32.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc76ce3be5b8844a8a527bb6148a43a,
         type: 3}
@@ -816,7 +816,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fbc76ce3be5b8844a8a527bb6148a43a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 53
+      value: 50.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fbc76ce3be5b8844a8a527bb6148a43a,
         type: 3}
@@ -3232,7 +3232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScanMat: {fileID: 2100000, guid: 817f4735fcee2b242b88898e22079e99, type: 2}
   ScanSpeed: 20
-  scanTimer: 10.02
+  scanTimer: 10
 --- !u!1 &2048492757
 GameObject:
   m_ObjectHideFlags: 0
