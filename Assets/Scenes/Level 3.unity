@@ -236,7 +236,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ff49f768bd361b740960842f85ee07ca, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
@@ -3063,7 +3063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScanMat: {fileID: 2100000, guid: 817f4735fcee2b242b88898e22079e99, type: 2}
   ScanSpeed: 40
-  scanTimer: 10.6866665
+  scanTimer: 10.02
 --- !u!1001 &1905554683
 PrefabInstance:
   m_ObjectHideFlags: 0
