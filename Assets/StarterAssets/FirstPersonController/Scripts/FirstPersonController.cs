@@ -54,6 +54,7 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
+		public AudioSource audioSource;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -249,6 +250,7 @@ namespace StarterAssets
 		{
 			if (other.CompareTag("Cherry"))
 			{
+				audioSource.Play();
 				Destroy(other.gameObject);
 				MoveSpeed = 8;
 				yield return new WaitForSeconds(6);
@@ -257,6 +259,7 @@ namespace StarterAssets
 
 			if (other.CompareTag("Orange"))
 			{
+				audioSource.Play();
 				Destroy(other.gameObject);
 				GlobalVar.Scanned = true;
 				yield return new WaitForSeconds(6);

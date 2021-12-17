@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour
     MazeSpawner mazeSpawner;
     public FirstPersonController fpc;
     public GameObject player;
+    public AudioSource audioSource;
 
     bool stopped = false;
 
@@ -46,6 +47,7 @@ public class Ghost : MonoBehaviour
         {
             if(gameObject.tag == "Ghost1")
             {
+                audioSource.Play();
                 GlobalVar.Blackout = true;
                 yield return new WaitForSeconds(3);
                 GlobalVar.Blackout = false;
@@ -53,6 +55,7 @@ public class Ghost : MonoBehaviour
 
             else if(gameObject.tag == "Ghost2")
             {
+                audioSource.Play();
                 fpc.RotationSpeed = 0;
                 fpc.MoveSpeed = 0;
                 yield return new WaitForSeconds(3);
