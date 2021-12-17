@@ -10,9 +10,11 @@ static class GlobalVar{
 
     public static bool Dark = false;
 
-    public static bool Clear= false;
+    public static bool Clear= true;
 
     public static int level = 1;
 
     public static float sensitivity = 3;
+
+    public static bool Scanned = false;
 }

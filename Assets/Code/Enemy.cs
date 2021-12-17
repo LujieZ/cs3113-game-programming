@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    _navMeshAgent.isStopped  = GlobalVar.Seen && GlobalVar.Clear;
+        _navMeshAgent.isStopped  = GlobalVar.Seen && GlobalVar.Clear || GlobalVar.Scanned;
         if(GlobalVar.Dark || RemainingDistance(_navMeshAgent.path.corners)>30){
             _navMeshAgent.speed = 40;
         }
@@ -43,6 +43,9 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GlobalVar.Blink = false;
+            GlobalVar.Blackout = false;
+            GlobalVar.Dark = false;
+            GlobalVar.Clear= true;
             SceneManager.LoadScene("Death");
         }
     }

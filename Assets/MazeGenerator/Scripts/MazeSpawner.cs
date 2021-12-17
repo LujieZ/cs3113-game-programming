@@ -31,6 +31,7 @@ public class MazeSpawner : MonoBehaviour {
 	public GameObject GatePrefab = null;
 
 	public GameObject CherriesPrefab = null;
+	public GameObject OrangePrefab = null;
 
 	public GameObject TorchPrefab = null;
 
@@ -146,15 +147,23 @@ public class MazeSpawner : MonoBehaviour {
 				}
 			}
 		}
+		if(OrangePrefab!=null){
+			for (int i = 0; i < Rows; i++) {
+				GameObject tmp;
+				int x = 8*Random.Range(0,Rows-1);
+				int z = 8*Random.Range(0,Columns-1);
+				tmp = Instantiate(OrangePrefab,new Vector3(x, 1 ,z), Quaternion.Euler(0,0,0)) as GameObject;
+				tmp.transform.parent = transform;
+			}
+		}
+
 		if(CherriesPrefab!=null){
 			for (int i = 0; i < Rows; i++) {
 				GameObject tmp;
 				int x = 8*Random.Range(0,Rows-1);
 				int z = 8*Random.Range(0,Columns-1);
-				{
-					tmp = Instantiate(CherriesPrefab,new Vector3(x, 1 ,z), Quaternion.Euler(0,0,0)) as GameObject;
-					tmp.transform.parent = transform;
-				}
+				tmp = Instantiate(CherriesPrefab,new Vector3(x, 1 ,z), Quaternion.Euler(0,0,0)) as GameObject;
+				tmp.transform.parent = transform;
 			}
 		}
 
@@ -175,6 +184,5 @@ public class MazeSpawner : MonoBehaviour {
         {
             surfaces [i].BuildNavMesh ();    
         }
-		
 	}
 }

@@ -10,6 +10,8 @@ TagManager:
   - Ghost2
   - Ghost1
   - Cherry
+  - Field
+  - Orange
   layers:
   - Default
   - TransparentFX

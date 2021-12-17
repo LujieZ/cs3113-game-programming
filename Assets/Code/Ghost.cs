@@ -10,6 +10,9 @@ public class Ghost : MonoBehaviour
     UnityEngine.AI.NavMeshAgent _navMeshAgent;
     MazeSpawner mazeSpawner;
     public FirstPersonController fpc;
+    public GameObject player;
+
+    bool stopped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +21,16 @@ public class Ghost : MonoBehaviour
         renderer = GetComponent<Renderer>();
         _navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         fpc = GameObject.FindWithTag("Player").GetComponent<FirstPersonController>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(GlobalVar.Scanned && !stopped)
+        {
+            StartCoroutine(Stopped());
+        }
         //(mazeSpawner.Rows);
         if(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance){
             int x = Random.Range(0,mazeSpawner.Rows-1);
@@ -52,5 +60,16 @@ public class Ghost : MonoBehaviour
                 fpc.MoveSpeed = 4;
             }
         }
+    }
+
+    IEnumerator Stopped()
+    {
+        float dist = Vector3.Distance(transform.position, player.transform.position);
+        yield return new WaitForSeconds(dist/25);
+        stopped = true;
+        _navMeshAgent.isStopped= true;
+        yield return new WaitForSeconds(6);
+        _navMeshAgent.isStopped = false;
+        stopped = false;
     }
 }

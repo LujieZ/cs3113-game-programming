@@ -254,6 +254,14 @@ namespace StarterAssets
 				yield return new WaitForSeconds(6);
 				MoveSpeed = 4;
 			}
+
+			if (other.CompareTag("Orange"))
+			{
+				Destroy(other.gameObject);
+				GlobalVar.Scanned = true;
+				yield return new WaitForSeconds(6);
+				GlobalVar.Scanned = false;
+			}
 		}
 	}
 }
